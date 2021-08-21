@@ -1,0 +1,22 @@
+
+#parallel pipeline
+pipeline{
+    agent any
+    stages{
+       stage("my parallel execution"){
+            parallel {
+               stage('one'){
+                   steps{
+                   git url: 'https://github.com/akshay1996137/JavaWeb.git', branch: "master"
+                   }
+               }
+               stage('two'){
+                  steps{
+                   git url: 'https://github.com/akshay1996137/JavaWeb.git', branch: "qa"
+                  }
+               }
+            }
+        
+        }
+    }
+}    

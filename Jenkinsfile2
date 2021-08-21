@@ -1,0 +1,16 @@
+#parameters pipeline
+
+properties([parameters([choice(choices: ['master/nfeature1/nfeature2'], name: 'branch')]), pipelineTriggers([githubPush()])])
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                echo 'checkout'
+                git url: 'https://github.com/akshay1996137/JavaWeb.git', branch: "${params.branch}"
+            }
+        }
+    }
+}
+
