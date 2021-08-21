@@ -21,5 +21,19 @@ pipeline {
                 }
             }
         }
+        stage('deploy') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                sh 'mvn sonar:sonar'
+                }
+            }
+        }
+        stage('package') {
+            steps {
+                sh 'mvn sonar:sonar'
+            }
+        }
+
+
     }
 }
