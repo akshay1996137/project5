@@ -1,0 +1,16 @@
+#docker running with port 
+pipeline {
+    agent {
+        docker { 
+            image 'httpd'
+            args '-p 80:80'
+        }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'ls'
+            }
+        }
+    }
+}
