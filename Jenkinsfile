@@ -33,7 +33,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('deploy') {
+        stage('nexus') {
             steps {
                  nexusArtifactUploader artifacts: [[artifactId: 'WebAppCal', classifier: '', file: 'CI-CD5/target/WebAppCal-0.0.9.war', type: 'war']], credentialsId: 'nexus_id', groupId: 'com.web.cal', nexusUrl: '52.199.45.109:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '0.0.9'
             }
