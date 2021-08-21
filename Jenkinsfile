@@ -30,7 +30,7 @@ pipeline {
         }
         stage('package') {
             steps {
-                sh 'mvn sonar:sonar'
+                sh 'mvn package'
             }
         }
 
